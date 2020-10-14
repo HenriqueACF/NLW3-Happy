@@ -9,7 +9,7 @@ import mapMakerImg from '../images/mapMarkerImg.svg';
 import { FiPlus, FiArrowRight } from 'react-icons/fi'
 //maps
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
-import MapIcon from '../utils/mapIcon';
+
 //api
 import api from '../services/api';
 

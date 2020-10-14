@@ -63,8 +63,8 @@ export default function OrphanagesMap() {
     data.append('opening_hours', opening_hours);
     data.append('open_on_weekends', String(open_on_weekends));
 
-    images.forEach(image => {
-      data.append('image', image);
+    images.forEach(images => {
+      data.append('images', images);
     })
 
   await api.post('orphanages', data);
@@ -119,9 +119,9 @@ export default function OrphanagesMap() {
               <label htmlFor="images">Fotos</label>
 
               <div className="images-container">
-                {previewImages.map(image =>{
+                {previewImages.map(images =>{
                   return (
-                    <img key={image} src={image} alt="name" />
+                    <img key={images} src={images} alt="images" />
                   )
                 })}
                 <label htmlFor="image[]" className="new-image">
