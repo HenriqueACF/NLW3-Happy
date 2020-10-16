@@ -7,7 +7,7 @@ import mapMarker from '../images/map-marker.png';
 //icons
 import {Feather} from '@expo/vector-icons'
 //navigation
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import { RectButton } from 'react-native-gesture-handler';
 //api
 import api from '../services/api';
@@ -23,11 +23,11 @@ export default function OrphanagesMap() {
   const [ orphanages, setOrphanages] = useState<Orphanage[]>([]);
   const navigation = useNavigation();
 
-  useEffect(() =>{
+  useFocusEffect(() =>{
     api.get('orphanages').then(response =>{
       setOrphanages(response.data)
     });
-  }, []);
+  });
 
 
   function handleNavigateToOrphanageDetails(id: number){
@@ -75,7 +75,7 @@ export default function OrphanagesMap() {
     </MapView>
 
     <View style={styles.footer}> 
-        <Text style={styles.footerText}> {orphanages.length} orfanato encontrado</Text>
+        <Text style={styles.footerText}> {orphanages.length} orfanatos encontrados</Text>
 
         <RectButton style={styles.createOrphanageButton} onPress={handleNavigateToCreateOrphanage}>
           <Feather  name="plus" size={20} color="#FFF"/>
